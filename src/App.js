@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import UserInput from './components/UserInput';
+import Data from './components/Data';
+import SimpleChart from './components/BmiResults';
 
 function App() {
+  const [input,setInput]=useState([])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <UserInput input={input} setInput={setInput}/>
+      <SimpleChart input={input}/>
+      <p>7 Day Data </p>
+      <Data input={input} setInput={setInput}/>
     </div>
   );
 }
